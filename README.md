@@ -1,57 +1,58 @@
-# end2end Clean Jekyll theme [![Build Status](https://travis-ci.org/nandomoreirame/end2end.svg?branch=master)](https://travis-ci.org/nandomoreirame/end2end)
+# Strata Reloaded
 
+Simple, clean personal blogging template for Jekyll based on Strata by HTML5 UP.
 
+![Strata Reloaded template screenshot](images/_screenshot.png)
 
-* [x] Clean layout
-* [x] Resposive layout
-* [x] Preprocessor SASS
-* [x] CSS minified
-* [x] Pagination
-* [x] Syntax highlight
-* [x] Author config
-* [x] Comments with Disqus
-* [ ] Search posts
-* [ ] Share posts
+## Features
 
----
+* Parallax background effect
+* Lightbox gallery
+* Pre-styled components
+* Blog with pagination
+* Configurable footer
+* Optimized for editing in [CloudCannon](http://cloudcannon.com/)
+* RSS/Atom feed
+* SEO tags
+* Google Analytics
+* Webmaster Verification
 
-### Start in 4 steps
+## Develop
 
-1. Download or clone repo `git clone git@github.com:nandomoreirame/end2end.git`
-2. Enter the folder: `cd end2end/`
-3. Install Ruby gems: `bundle install`
-4. Start Jekyll server: `bundle exec jekyll serve`
+1. Add your site and author details in `_config.yml`.
+2. Add your Google Analytics key to `_config.yml`.
+3. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
 
-Access, [localhost:4000/end2end](http://localhost:4000/end2end)
+## Develop
 
-### Deploy in Github pages in 2 steps
+Urban was built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
 
-1. Change the variables `GITHUB_REPONAME` and `GITHUB_REPO_BRANCH` in `Rakefile`
-2. Run `rake` or `rake publish` for build and publish on Github
+Install the dependencies with [Bundler](http://bundler.io/):
 
----
+~~~bash
+$ bundle install
+~~~
 
-### Using Rake tasks
+Run `jekyll` commands through Bundler to ensure you're using the right versions:
 
-* Create a new page: `rake page name="contact.md"`
-* Create a new post: `rake post title="TITLE OF THE POST"`
+~~~bash
+$ bundle exec jekyll serve
+~~~
 
----
+## Editing
 
-### Demo and Download
+Strata Reloaded is already optimized for adding, updating and removing posts and footer elements in [CloudCannon](https://app.cloudcannon.com/).
 
-[Demo](https://nandomoreirame.github.io/end2end/)
-[Download](https://github.com/nandomoreirame/end2end/archive/master.zip)
+### Posts
 
-![end2end - free Jekyll theme](/screenshot.png)
+* Add, update or remove a post in the *Posts* collection.
+* Change the defaults when new posts are created in `_posts/_defaults.md`.
 
----
+### Footer
 
-### Copyright and license
+* Exposed as a data file to give clients better access.
+* Set in the *Data* / *Footer* section.
 
-It is under [the MIT license](/LICENSE).
+## License
 
-> :warning:
-  Please remove metas `<meta name="robots" content="noindex">` and `<meta name="googlebot" content="noindex">` in `source/_layouts/default.html`
-
-Enjoy :yum:
+Free for personal and commercial use under the CCA 3.0 license. See LICENSE file for additional information and terms of use. This theme was adapted from Strata by HTML5 UP for use with [CloudCannon](http://cloudcannon.com) by [Comfusion LLC](http://comfusionllc.com).
