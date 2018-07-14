@@ -1,119 +1,182 @@
-# Tale
+<p align = "center">
+<img src="http://i.imgur.com/JhbQ03z.png"/>
+</p>
 
-[![Gem Version](https://badge.fury.io/rb/tale.svg)](https://badge.fury.io/rb/tale)
+---
 
-Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/).
+If there's any issue you are facing in setting up this theme I'm there for you. Just create an issue in this repository (<http://github.com/hemangsk/Gravity>), (<https://help.github.com/articles/creating-an-issue/>) and I'll get back to you asap.
 
-![Tale screenshot](http://i.imgur.com/pXZrtmo.png)
+![Welcome to Gravity](https://user-images.githubusercontent.com/13018570/27043040-778d80cc-4fb6-11e7-8619-de4be626be67.png)
+<img src="http://i.imgur.com/cPwoX3E.png"/>
+<img src="http://i.imgur.com/3TMoBGj.png"/>
+<img src="http://i.imgur.com/Z6h3uCp.png"/>
+<img src="http://i.imgur.com/bB7IIHr.png"/>
 
-## Features
-- Easy installation
-- Compatible with GitHub Pages
-- Responsive design (looks just as good on mobile)
-- Syntax highlighting, with the help of Pygments
-- Markdown and HTML text formatting
-- Pagination of posts
+***
 
-## Installation
-There are 3 ways to install this theme
+# INSTALLATION
 
-1. Install it as a Ruby Gem (for self-hosted sites)
-2. Install it with the `jekyll-remote-theme` plugin (for GitHub Pages hosted sites)
-3. Fork the project directly
+### Dependencies
 
-### Ruby Gem method
-1. Add this line to your `Gemfile`:
-
-```ruby
-gem "tale"
-```
-
-2. Install the theme's gems and dependencies:
+Gravity uses Jekyll and it's built-in SCSS compiler for the associated CSS, so the first thing you'll need is Jekyll itself:
 
 ```bash
-$ bundle
+$ gem install jekyll
 ```
 
-3. In `_config.yml` add these lines:
+In case you don't have the `bundler` gem installed already, you can install it as follows:
 
-```yaml
-theme:      tale
-
-permalink:  /:year-:month-:day/:title
-paginate:   5
+```bash
+$ gem install bundler
 ```
 
-Remove any other `theme:` lines.
+For pagination, Gravity uses the [jekyll-paginate](https://jekyllrb.com/docs/pagination/) gem :
 
-4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
+```bash
+$ gem install jekyll-paginate
+```
 
-5. In `about.md`, change the `layout:` field to `post`:
+***
 
-```Markdown
+# USAGE
+
+Once you have the required gems, you can go ahead and clone the
+[Gravity repository](https://github.com/hemangsk/Gravity) or [download](https://github.com/hemangsk/Gravity/archive/master.zip)
+a zip of the master branch.
+
+Run :
+
+```bash
+$ jekyll serve
+```
+
+Jekyll should now be generating your content!
+
+***
+
+# ADDING POSTS
+
+The theme by default ships with starter posts located in `_posts/`. Delete these posts and add your content to the `_posts`
+folder to see them being served up by Jekyll. [This](https://jekyllrb.com/docs/posts/) would be a good guide to getting started on writing posts using Jekyll. We've added a concise guide below:
+
+- Create a .markdown file inside `_posts` folder.
+- Name the file according to the format YY-MM-DD-[short name for your post].
+- `2016-03-30-i-love-design.markdown`
+- Write the *Front Matter* and content in the file.
+
+### FORMAT
+
+```
+---
+layout: post | default | page
+title: String POST TITLE
+date: Time Stamp
+categories: String | Array of Strings CATEGORY / CATEGORIES
+---
+
+---
 layout: post
+title: "The One with the Blackout"
+date: 2016-03-30 19:45:31 +0530
+categories: ["life", friends]
+---
 ```
 
-### GitHub Pages method
-1. Add these 2 lines in to your `Gemfile`:
+***
 
-```ruby
-gem "jekyll-remote-theme"
-gem "jekyll-paginate"
+# CREATE PAGES
+
+- Create a .md file in the root directory.
+- Name the file with the desired page link name.
+  `about.md`
+  `design.md`
+- Write the *Front Matter* and content in the file.
+
+### FORMAT
+
+```
+---
+layout: page
+title: String TITLE OF THE WEBPAGE
+permalink: / String / PERMALINK FOR THE WEBPAGE
+tagline: String OPTIONAL GRAVITY FEATURE : TAGLINE FOR THE PAGE
+---
+
+---
+layout: page
+title: "Science"
+permalink: /science/
+tagline: "Humanity is overrated."
+---
 ```
 
-2. Install the newly added gems:
+***
 
-```bash
-$ bundle
+#### Introducing
+
+# ARCHIVE PAGES
+
+#### You can display a list of all the posts corresponding to a particular category on a standalone page using the `ARCHIVE` layout.
+
+- Create a .md file in the root directory.
+- Name the file. Preferred name will be the name of the category.
+    \*`life.md`
+- Write the *Front Matter* and content in the file.
+
+### FORMAT
+
+```
+---
+layout: archive ARCHIVE PAGE LAYOUT
+title: String TITLE OF THE WEBPAGE
+permalink: / String / PERMALINK FOR THE WEBPAGE
+tagline: String TAGLINE FOR THE PAGE
+category: String NAME OF THE CATEGORY OF WHICH THE PAGE WILL SHOW POSTS
+---
+
+---
+layout: archive
+title: "Design"
+permalink: "Design"
+tagline: "It's all about perception"
+category: "design"
+---
 ```
 
-3. In `_config.yml` add these lines:
+#### DIRECTORY STRUCTURE
 
-```yaml
-remote_theme: chesterhow/tale
-
-permalink:    /:year-:month-:day/:title
-paginate:     5
-
-plugins:
-  - jekyll-paginate
-  - jekyll-remote-theme
 ```
-
-Remove any other `theme:` or `remote_theme:` lines.
-
-4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
-
-5. In `about.md`, change the `layout:` field to `post`:
-
-```Markdown
-layout: post
+├── css                                         # => Output of the combined SASS files
+│   └── style.scss
+├── _includes                                   # => Contains partials that can be used with your layouts
+│   ├── footer.html
+│   ├── header.html
+│   ├── head.html
+│   ├── icon-github.html
+│   ├── icon-github.svg
+│   ├── icon-twitter.html
+│   └── icon-twitter.svg
+├── _layouts                                    # => Layout related HTML files
+│   ├── archive.html
+│   ├── default.html
+│   ├── page.html
+│   └── post.html
+├── _posts                                      # => posts, dynamic content. Follow the format: YEAR-MONTH-DAY-title.MARKUP
+│   ├── 2016-03-30-design-stories.markdown
+│   ├── 2016-03-30-science0.markdown
+│   ├── 2016-03-30-science.markdown
+│   └── 2016-03-30-welcome-to-jekyll.markdown
+└── _sass                                       # => SASS partials for styling
+|   ├── _base.scss
+|   ├── _layout.scss
+|   └── _syntax-highlighting.scss
+├── about.md
+├── _config.yml                                 # => Configuration options or flags for your site go here
+├── design.md
+├── download.md
+├── feed.xml
+├── index.html
+├── LICENSE.txt                                 # => Licensing information
+├── README.md
+└── science.md
 ```
-
-### Fork method
-1. Fork this repository
-
-2. Delete the unnecessary files/folders: `CODE_OF_CONDUCT.md`, `LICENSE`, `README.md`, `tale.gemspec`
-
-3. Delete the `baseurl` line in `_config.yml`:
-
-```yaml
-baseurl:  "/tale"   # delete this line
-```
-
-## Usage
-Once you've installed the theme, you're ready to work on your Jekyll site. To start off, I would recommend updating `_config.yml` with your site's details.
-
-To build and serve your site, run:
-
-```bash
-$ bundle exec jekyll serve
-```
-
-And you're all set! Head over to http://127.0.0.1:4000/ to see your site in action.
-
-## Contributing
-Found a bug or have a suggestion? Feel free to create an issue or make a pull request!
-
-## License
-See [LICENSE](https://github.com/chesterhow/tale/blob/master/LICENSE)
