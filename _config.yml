@@ -10,7 +10,7 @@ title: Minkyung's Blog
 email: mnk918p@gmail.com
 description: ddongule.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ddongule.github.io/index.html" # the base hostname & protocol for your site
+url: "https://ddongule.github.io" # the base hostname & protocol for your site
 # twitter_username: hemang_kumar
 github_username:  ddongule
 paginate: 5
