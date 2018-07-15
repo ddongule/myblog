@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: page
 title: Download
 permalink: /download/
@@ -30,4 +30,4 @@ tagline: "Loved it? Download Gravity"
  <a href="http://facebook.com/hemangkr"><i class="fa fa-facebook"></i></a> &nbsp; &nbsp; &nbsp;<a href="http://github.com/hemangsk"><i class="fa fa-github"></i></a>
  </p>
 </div>
-
+ -->

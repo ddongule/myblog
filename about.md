@@ -80,9 +80,9 @@ tagline: String <span class="hint">Optional Gravity Feature : Tagline for the pa
 ```
 
 layout: page
-title:  "Science"
-permalink:   /science/
-tagline : "Humanity is overrated."
+title:  "Posts"
+permalink:   /posts/
+tagline: "post archive"
 \---</pre>
 
 ```

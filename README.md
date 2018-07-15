@@ -105,7 +105,7 @@ tagline: String OPTIONAL GRAVITY FEATURE : TAGLINE FOR THE PAGE
 ---
 layout: page
 title: "Science"
-permalink: /science/
+permalink: /develog/
 tagline: "Humanity is overrated."
 ---
 ```
