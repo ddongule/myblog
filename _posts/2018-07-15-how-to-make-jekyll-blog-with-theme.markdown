@@ -40,27 +40,27 @@ Jekyll을 설치하려면, 먼저 Ruby를 설치해야 한다. Mac에는 Ruby(1.
 
   `terminal`에 `ruby -v`를 입력하면 Ruby 버전이 나온다. version이 2 이상이라면 그대로 사용해도 좋다. 만약 아니라면 아래의 코드를 실행한다.
 
-  1. Ruby Version Manager 설치하기
-
-     Ruby에는 다양한 버전들이 존재하는데, Ruby Version Manager(이하 RVM)는 Ruby의 다양한 버전, gem등을 관리해준다. 아래와 같은 코드로 설치할 수 있다.
-
-     ``` 
-     curl -sSL https://get.rvm.io | bash -s stable --ruby  
-     ```
-
-  2. Ruby 설치
-
-     *Ruby Version 2.1.1 설치*
-
-     ``` 
-     rvm install 2.1.1
-     ```
-
-     *Ruby 2.1.1을 기본으로 설정*
-
-      ``` 
-     rvm --default use 2.1.1
-      ```
+  >1. Ruby Version Manager 설치하기
+  >
+  >   Ruby에는 다양한 버전들이 존재하는데, Ruby Version Manager(이하 RVM)는 Ruby의 다양한 버전, gem등을 관리해준다. 아래와 같은 코드로 설치할 수 있다.
+  >
+  >   ```
+  >   curl -sSL https://get.rvm.io | bash -s stable --ruby  
+  >   ```
+  >
+  >2. Ruby 설치
+  >
+  >   *Ruby Version 2.1.1 설치*
+  >
+  >   ```
+  >   rvm install 2.1.1
+  >   ```
+  >
+  >   *Ruby 2.1.1을 기본으로 설정*
+  >
+  >   ```
+  >   rvm --default use 2.1.1
+  >   ```
 
 2. <u>Xcode 설치</u> 
 
