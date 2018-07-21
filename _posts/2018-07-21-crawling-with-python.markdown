@@ -6,7 +6,7 @@ categories: ["home","develog"]
 author: "minkyung"
 ---
 
-# 파이썬으로 크롤링하기1
+# [python] 파이썬으로 크롤링하기1
 
 ### 크롤링(Crawling)이란 무엇인가?
 
