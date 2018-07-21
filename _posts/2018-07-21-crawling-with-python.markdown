@@ -6,7 +6,9 @@ categories: ["home","develog"]
 author: "minkyung"
 ---
 
-# [python] 파이썬으로 크롤링하기1
+# **[python] 파이썬으로 크롤링하기[1]**
+
+
 
 ### 크롤링(Crawling)이란 무엇인가?
 
@@ -17,21 +19,17 @@ jupyter notebook을 이용했다.
 
 
 
+
+
 ### BeautifulSoup을 이용한 간단한 크롤링
 
+#### 크롤링 하기 전 알아보자!
 
-
-### 크롤링 하기 전에
-
-
-
-##### 들어가기 전에, "BeautifulSoup이란?"
+#### **1. BeautifulSoup 이란?**
 
 beautifulsoup은 html 및 xml 파일에서 데이터를 가져오는 python 라이브러리이다. beautifulsoup을 이용하면 html문서를 Document Objec Model(DOM) 구조로 쉽게 해석할 수 있다. [DOM 구조는 객체지향 모델로써 구조화된 문서를 표현하는 방식이다. 잘 구조화된 문서는 DOM을 이용해 "트리구조"의 형태로 나타낼 수 있다.]
 
-
-
-##### 크롤링 방법 
+#### **2. 크롤링 방법**
 
 1. 원하는 웹 페이지에 요청(request)해 페이지의 html을 받는다.
 2. 받은 html을 파싱(parsing)한다.
@@ -41,7 +39,7 @@ beautifulsoup은 html 및 xml 파일에서 데이터를 가져오는 python 라�
 
 
 
-##### 저작권은요? (feat. robots.txt)
+#### **3. 저작권은요? (feat. robots.txt)**
 
 크롤링을 통해 이 세상의 모든 웹 페이지의 내용을 가져올 수 있는 것은 아니다. 개인 정보가 들어있는 사이트들이 있을 수 있고, 무분별한 크롤링을 통해 피해를 보는 사람 등이 생길수도 있기 때문이다. 
  큰 검색 엔진 사이트들은 검색 속도를 높이기 위해 robot이라는 웹 크롤러를 만들어 자동으로 웹 페이지를 크롤링한다. 1994년 6월에 이런 robot들의 접근을 제어하기 위한 규약을 만들었다. 그것이 robots.txt이다. (하지만 권고안이라 꼭 지킬 의무는 없다.) robots.txt는 웹 사이트의 최상위 경로 (ex) naver.com/robots.txt)에 있다. 
@@ -72,13 +70,15 @@ Disallow: /  # 모든 페이지들의 색인(indexing)을 금지합니다
 
 ---
 
+---
 
+---
 
 ### 본격적인 크롤링
 
 
 
-##### Requests, BeautifulSoup 설치
+#### **Requests, BeautifulSoup 설치**
 
 python에는 `requests` 라는 http request 라이브러리가 내장되어 있다. 아래의 코드로 설치가 가능하다.
 
@@ -106,18 +106,18 @@ pip install requests
 
 
 
-##### 시작하기
+#### **시작하기**
 
 > 본인은 [노랑풍선 사이트의 미주/남미 테마추천상품](https://www.ybtour.co.kr/product/locMain.do?menu=fit&did=345) 의 title들을 가져올 것이다. (모든 페이지가 크롤링 가능하기 때문에)
 
-1. **위에서 설치한 library들을 import해준다.** 
+**1. 위에서 설치한 library들을 import해준다.** 
 
     ```python
     import requests
     import bs4 from BeautifulSoup as bs # BeautifulSoup을 import해주고, 이후로는 bs라고 쓸 것이다.
     ```
 
-2. **위 페이지의 html을 가져온다.**
+**2. 위 페이지의 html을 가져온다.**
 
     ```python
     url = "https://www.ybtour.co.kr/product/locMain.do?menu=fit&did=345"
@@ -129,7 +129,7 @@ pip install requests
 requests.get을 통해 http get request 응답 코드를 불러오고,
 requests.get.text를 통해 HTML 소스를 불러올 수 있다. 
 
-3. **`BeautifulSoup` 으로 html소스를 python객체로 변환한다.**
+**3. `BeautifulSoup` 으로 html소스를 python객체로 변환한다.**
 
    ```python
    soup = BeautifulSoup(html, 'html.parser') 
@@ -140,13 +140,13 @@ requests.get.text를 통해 HTML 소스를 불러올 수 있다.
 
    이제 soup에서 원하는 정보를 찾아낼 수 있게 되었다.
 
-4. **`BeautifulSoup` 에서 제공하는 `select` 를 이용해 원하는 정보를 찾아낸다.**
+**4. `BeautifulSoup` 에서 제공하는 `select` 를 이용해 원하는 정보를 찾아낸다.**
 
    `select`는 CSS Selector를 이용해 조건과 일치하는 모든 객체들을 `list` 형태로 반환해준다.
 
    웹페이지 소스보기(Chrome 검사도구)를 통해 원하는 내용이 어떤 tag들로 구성되어있는 지 알 수 있다.
 
-   ![chrome-source](/Users/minkyung/dataitgirls/blog/ddongule.github.com/assets/chrome-source.png)
+   ![chrome-source](/assets/chrome-source.png)
 
    내가 원하는 소스는 `h3 class="tit" ` 로 구성되어있다는 것을 알 수 있다. 
 
@@ -188,7 +188,7 @@ requests.get.text를 통해 HTML 소스를 불러올 수 있다.
 
       이렇게 뽑아낸 titles2 는 soup 객체들의 list형이다. 그러므로 태그의 속성들도 이용할 수 있다. 예를 들어, h3의 class명을 뽑아낸다던지 (쓸데없긴 하지만 하핫)~~! 5번에서 뽑아내 보겠다.
 
-5. **필요없는 tag들을 지워버리고, 우리가 원하는 title 값만 뽑아내보기 (feat. for함수)**
+**5. 필요없는 tag들을 지워버리고, 우리가 원하는 title 값만 뽑아내보기 (feat. for함수)**
 
    ```python
    for title in titles2:
@@ -235,7 +235,7 @@ requests.get.text를 통해 HTML 소스를 불러올 수 있다.
 
    그럼 공백을 지워보자. 그 전에, <u>빈 array를 하나 만들어 title들을 넣어준다.</u> 
 
-6. **뽑아낸 title들을 array로 만들기**
+**6. 뽑아낸 title들을 array로 만들기**
 
    ```python
    data = [] # 빈 list 생성
@@ -244,18 +244,17 @@ requests.get.text를 통해 HTML 소스를 불러올 수 있다.
    data # 확인 
    ```
 
-    ```python
-   ['\r\n\t\t\t\t\t\t\t\t[뉴욕에서 만나자] 미동부&캐나다 6...',
-    '\r\n\t\t\t\t\t\t\t\t[뉴욕에서 만나자] 오후에 합류하는 ...',
-    '\r\n\t\t\t\t\t\t\t\t[내마음대로 하와이] 홀리데이 인 익...',
-    '\r\n\t\t\t\t\t\t\t\t[6일간 살아보기] 로스앤젤레스 자유...',
-    '\r\n\t\t\t\t\t\t\t\t[6/7일간 살아보기] 샌프란시스코 ...',
-    '\r\n\t\t\t\t\t\t\t\t[뉴욕 맛보기] 뉴욕 1박2일PKG ...',
-    '\r\n\t\t\t\t\t\t\t\t[내마음대로 하와이] 하얏트 센트릭 ...',
-    '\r\n\t\t\t\t\t\t\t\t[하와이] 빅아일랜드+오아후 <로얄코...',
-    '\r\n\t\t\t\t\t\t\t\t[하와이] 마우이+오아후 <마우이 비...',
-    '\r\n\t\t\t\t\t\t\t\t[6일간 살아보기] 초이스 뉴욕 자유...']
-    ```
+    ['\r\n\t\t\t\t\t\t\t\t[뉴욕에서 만나자] 미동부&캐나다 6...',
+        '\r\n\t\t\t\t\t\t\t\t[뉴욕에서 만나자] 오후에 합류하는 ...',
+        '\r\n\t\t\t\t\t\t\t\t[내마음대로 하와이] 홀리데이 인 익...',
+        '\r\n\t\t\t\t\t\t\t\t[6일간 살아보기] 로스앤젤레스 자유...',
+        '\r\n\t\t\t\t\t\t\t\t[6/7일간 살아보기] 샌프란시스코 ...',
+        '\r\n\t\t\t\t\t\t\t\t[뉴욕 맛보기] 뉴욕 1박2일PKG ...',
+        '\r\n\t\t\t\t\t\t\t\t[내마음대로 하와이] 하얏트 센트릭 ...',
+        '\r\n\t\t\t\t\t\t\t\t[하와이] 빅아일랜드+오아후 <로얄코...',
+        '\r\n\t\t\t\t\t\t\t\t[하와이] 마우이+오아후 <마우이 비...',
+        '\r\n\t\t\t\t\t\t\t\t[6일간 살아보기] 초이스 뉴욕 자유...']
+
 
    title 들만 뽑힌 것을 알 수 있다. 하지만 우리는 앞에 있는 더러운 저 \r, \n, \t들을 지워 줄 예정이다. 
    strip함수와 replace함수를 사용할 수 있는데, 조금 더 편한 strip()함수를 사용하겠다.
@@ -290,7 +289,7 @@ requests.get.text를 통해 HTML 소스를 불러올 수 있다.
     '[6일간 살아보기] 초이스 뉴욕 자유...']
    ```
 
-7. **추가) Array, Tuple, Dictionary**
+**7. 추가) Array, Tuple, Dictionary**
 
    ```python
    # Array: 배열을 만들 때! [] 사용 / (), {}는 쓰이지 않음
