@@ -18,7 +18,18 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
+    <script id="dsq-count-scr" src="//ddgle.disqus.com/count.js" async></script>
   </div>
+  <!-- <div id="disqus_thread"></div> -->
+  <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ddgle.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
 
   <footer class="postNavigation">
   {% if page.previous.url %}

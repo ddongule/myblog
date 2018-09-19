@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "크롤링 with python"
+title:  "[python] 데이터 크롤링"
 date:   2018-07-21 04:00:00 +0530
 categories: ["home","develog"]
 author: "minkyung"
 ---
 
-# **[python] 파이썬으로 크롤링하기[1]**
+# **[python] Crawling [1]**
 
 
 
